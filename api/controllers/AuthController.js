@@ -199,6 +199,110 @@ exports.login = [
   },
 ];
 
+exports.getLeituras = [
+  auth,
+  (req, res) => {
+    UserModel.findById(req.user._id, (err, foundEletro) => {
+      if (foundEletro === null) {
+        return apiResponse.validationErrorWithData(res, "Not Found", []);
+      } else {
+        try {
+          return apiResponse.successResponseWithData(
+            res,
+            "Get Leituras success",
+            foundEletro.leituras
+          );
+        } catch (err) {
+          return apiResponse.ErrorResponse(res, err);
+        }
+      }
+    });
+  },
+];
+
+exports.setLeituras = [
+  auth,
+  (req, res) => {
+    UserModel.findById(req.user._id, (err, foundDicas) => {
+      if (foundDicas === null) {
+        return apiResponse.validationErrorWithData(res, "Not Found", []);
+      } else {
+        try {
+          UserModel.updateOne(
+            { _id: req.user._id },
+            { $set: { leituras: req.body.leituras } },
+            (err) => {
+              if (err) {
+                return apiResponse.ErrorResponse(res, err);
+              } else {
+                return apiResponse.successResponseWithData(
+                  res,
+                  "Leituras Updated Success.",
+                  req.body.leituras
+                );
+              }
+            }
+          );
+        } catch (err) {
+          return apiResponse.ErrorResponse(res, err);
+        }
+      }
+    });
+  },
+];
+
+exports.getHistorico = [
+  auth,
+  (req, res) => {
+    UserModel.findById(req.user._id, (err, foundEletro) => {
+      if (foundEletro === null) {
+        return apiResponse.validationErrorWithData(res, "Not Found", []);
+      } else {
+        try {
+          return apiResponse.successResponseWithData(
+            res,
+            "Get Historico success",
+            foundEletro.historico
+          );
+        } catch (err) {
+          return apiResponse.ErrorResponse(res, err);
+        }
+      }
+    });
+  },
+];
+
+exports.setHistorico = [
+  auth,
+  (req, res) => {
+    UserModel.findById(req.user._id, (err, foundDicas) => {
+      if (foundDicas === null) {
+        return apiResponse.validationErrorWithData(res, "Not Found", []);
+      } else {
+        try {
+          UserModel.updateOne(
+            { _id: req.user._id },
+            { $set: { historico: req.body.historico } },
+            (err) => {
+              if (err) {
+                return apiResponse.ErrorResponse(res, err);
+              } else {
+                return apiResponse.successResponseWithData(
+                  res,
+                  "Historico Updated Success.",
+                  req.body.historico
+                );
+              }
+            }
+          );
+        } catch (err) {
+          return apiResponse.ErrorResponse(res, err);
+        }
+      }
+    });
+  },
+];
+
 exports.getEletrodomesticos = [
   auth,
   (req, res) => {
@@ -242,6 +346,33 @@ exports.setEletrodomesticos = [
                 );
               }
             }
+          );
+        } catch (err) {
+          return apiResponse.ErrorResponse(res, err);
+        }
+      }
+    });
+  },
+];
+
+exports.profile = [
+  auth,
+  (req, res) => {
+    UserModel.findById(req.user._id, (err, foundEletro) => {
+      if (foundEletro === null) {
+        return apiResponse.validationErrorWithData(res, "Not Found", []);
+      } else {
+        try {
+          let objData = {
+            firstName: foundEletro.firstName,
+            lastName: foundEletro.lastName,
+            email: foundEletro.email,
+            meta: foundEletro.meta,
+          };
+          return apiResponse.successResponseWithData(
+            res,
+            "Get  Profile success",
+            foundEletro.eletrodomesticos
           );
         } catch (err) {
           return apiResponse.ErrorResponse(res, err);
