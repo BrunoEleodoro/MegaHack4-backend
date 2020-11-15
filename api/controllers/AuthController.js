@@ -202,7 +202,7 @@ exports.login = [
 exports.getEletrodomesticos = [
   auth,
   (req, res) => {
-    DicasModel.findById(req.user._id, (err, foundEletro) => {
+    UserModel.findById(req.user._id, (err, foundEletro) => {
       if (foundEletro === null) {
         return apiResponse.validationErrorWithData(res, "Not Found", []);
       } else {
@@ -223,12 +223,12 @@ exports.getEletrodomesticos = [
 exports.setEletrodomesticos = [
   auth,
   (req, res) => {
-    DicasModel.findById(req.user._id, (err, foundDicas) => {
+    UserModel.findById(req.user._id, (err, foundDicas) => {
       if (foundDicas === null) {
         return apiResponse.validationErrorWithData(res, "Not Found", []);
       } else {
         try {
-          DicasModel.updateOne(
+          UserModel.updateOne(
             { _id: req.user._id },
             { $set: { eletrodomesticos: req.body.eletrodomesticos } },
             (err) => {
