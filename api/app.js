@@ -9,33 +9,6 @@ var apiResponse = require("./helpers/apiResponse");
 var cors = require("cors");
 var swaggerJsdoc = require("swagger-jsdoc");
 var swaggerUi = require("swagger-ui-express");
-const options = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "MegaHack4 Express API with Swagger",
-      version: "0.1.0",
-      description:
-        "MegaHack4 documented with Swagger",
-      license: {
-        name: "MIT",
-        url: "https://spdx.org/licenses/MIT.html",
-      },
-      contact: {
-        name: "Bruno",
-        email: "brunoeleodoro96@gmail.com",
-      },
-    },
-    servers: [
-      {
-        url: "https://megahack5.brunoeleodoro.com/api",
-      },
-    ],
-  },
-  apis: ["./routes/dicas.js"],
-};
-
-const specs = swaggerJsdoc(options);
 // DB connection
 var MONGODB_URL = process.env.MONGODB_URL;
 var mongoose = require("mongoose");
@@ -71,7 +44,7 @@ app.use(cors());
 app.use(
   "/api-docs",
   swaggerUi.serve,
-  swaggerUi.setup(specs)
+  swaggerUi.setup(require('./swagger.json'))
 );
 app.use("/", indexRouter);
 app.use("/api/", apiRouter);
