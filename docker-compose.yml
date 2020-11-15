@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+    megahack4-database:
+        image: mongo
+        restart: always
+        container_name: megahack4-database 
+        command: mongod --port 27018
+        ports:
+            - 127.0.0.1:27018:27018
+        volumes:
+            - "./database/:/data/db:z"
+        networks:
+            - megahack4-network
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=megahack
+            - MONGO_INITDB_ROOT_PASSWORD=041dfc3e1066baffc8aef3001c8422ee
+            - MONGO_INITDB_ROOT_DATABASE=megahack4-database
+
+    megahack4-api:
+        container_name: megahack4-api 
+        restart: always
+        ports:
+          - 127.0.0.1:4000:4000
+        depends_on:
+            - megahack4-database 
+        build:
+            context: ./api/
+            dockerfile: Dockerfile
+        networks:
+            - megahack4-network 
+        environment:
+            - PORT=4000
+            - JWT_SECRET=2752a3148424bd59a4565ef4a19ae2263b92c5b34f13
+            - JWT_TIMEOUT_DURATION=4 hours
+            - MONGODB_URL=mongodb://megahack:041dfc3e1066baffc8aef3001c8422ee@megahack4-database:27018/megahack4-database?authSource=admin 
+
+networks:
+  megahack4-network:
