@@ -34,6 +34,7 @@ services:
             - JWT_SECRET=2752a3148424bd59a4565ef4a19ae2263b92c5b34f13
             - JWT_TIMEOUT_DURATION=4 hours
             - MONGODB_URL=mongodb://megahack:041dfc3e1066baffc8aef3001c8422ee@megahack4-database:27018/megahack4-database?authSource=admin 
+            - PASSWORD=6a236383b5f9f07192533bea337d2d10
 
 networks:
   megahack4-network:
