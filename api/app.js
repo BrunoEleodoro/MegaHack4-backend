@@ -68,6 +68,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 //Route Prefixes
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs)
+);
 app.use("/", indexRouter);
 app.use("/api/", apiRouter);
 
@@ -81,10 +86,5 @@ app.use((err, req, res) => {
 		return apiResponse.unauthorizedResponse(res, err.message);
 	}
 });
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(specs)
-);
 
 module.exports = app;
