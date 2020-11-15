@@ -2,13 +2,11 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0",
-    "title": "MegaHack4",
-    "description": "",
+    "title": "HAR Imported API",
     "contact": {}
   },
   "host": "megahack5.brunoeleodoro.com",
-  "basePath": "/api",
-  "securityDefinitions": {},
+  "basePath": "/api/",
   "schemes": [
     "https"
   ],
@@ -19,70 +17,166 @@
     "application/json"
   ],
   "paths": {
-    "/auth/eletrodomesticos": {
+    "/tabela_precos": {
       "get": {
-        "description": "",
-        "summary": "Get Eletrodomesticos",
-        "tags": [
-          "user"
-        ],
-        "operationId": "GetEletrodomesticos",
+        "description": "Listar Tabela de precos",
+        "summary": "TabelaPrecos_GET",
+        "operationId": "TabelaPrecos_GET",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/Response"
             },
-            "headers": {}
+            "examples": {
+              "application/json; charset=utf-8": {
+                "tabela": [
+                  {
+                    "aparelho": "Ar condicionado",
+                    "potencia": 1200,
+                    "unidade": "hora",
+                    "consumo": 1.2,
+                    "custo": 0.96
+                  },
+                  {
+                    "aparelho": "Cafeteira",
+                    "potencia": 500,
+                    "unidade": "hora",
+                    "consumo": 0.5,
+                    "custo": 0.4
+                  },
+                  {
+                    "aparelho": "Chuveiro",
+                    "potencia": 4800,
+                    "unidade": "minuto",
+                    "consumo": 0.08,
+                    "custo": 0.06
+                  },
+                  {
+                    "aparelho": "Ferro elétrico",
+                    "potencia": 1000,
+                    "unidade": "hora",
+                    "consumo": 1,
+                    "custo": 0.8
+                  },
+                  {
+                    "aparelho": "Forno de microondas",
+                    "potencia": 1400,
+                    "unidade": "hora",
+                    "consumo": 1.4,
+                    "custo": 1.12
+                  },
+                  {
+                    "aparelho": "Forno elétrico",
+                    "potencia": 600,
+                    "unidade": "hora",
+                    "consumo": 0.6,
+                    "custo": 0.48
+                  },
+                  {
+                    "aparelho": "Lâmpada de LED",
+                    "potencia": 8,
+                    "unidade": "hora",
+                    "consumo": 0.01,
+                    "custo": 0.006
+                  },
+                  {
+                    "aparelho": "Lâmpada fluorescente",
+                    "potencia": 15,
+                    "unidade": "hora",
+                    "consumo": 0.02,
+                    "custo": 0.012
+                  },
+                  {
+                    "aparelho": "Lâmpada incandescente",
+                    "potencia": 60,
+                    "unidade": "hora",
+                    "consumo": 0.06,
+                    "custo": 0.05
+                  },
+                  {
+                    "aparelho": "Notebook",
+                    "potencia": 90,
+                    "unidade": "hora",
+                    "consumo": 0.09,
+                    "custo": 0.07
+                  },
+                  {
+                    "aparelho": "Sanduicheira",
+                    "potencia": 1000,
+                    "unidade": "hora",
+                    "consumo": 1,
+                    "custo": 0.8
+                  },
+                  {
+                    "aparelho": "Secador de cabelos",
+                    "potencia": 1200,
+                    "unidade": "hora",
+                    "consumo": 1.2,
+                    "custo": 0.96
+                  },
+                  {
+                    "aparelho": "TV",
+                    "potencia": 120,
+                    "unidade": "hora",
+                    "consumo": 0.12,
+                    "custo": 0.1
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 16:16:21 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "1169"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"491-BUKV83Ibb8NNL306EVSPYIA8Wbg\""
+              }
+            }
           }
-        }
-      },
-      "post": {
-        "description": "",
-        "summary": "Atualizar Eletrodomesticos",
-        "tags": [
-          "user"
-        ],
-        "operationId": "AtualizarEletrodomesticos",
+        },
+        "security": []
+      }
+    },
+    "/auth/eletrodomesticos": {
+      "get": {
+        "description": "Get Eletrodomesticos",
+        "summary": "AuthEletrodomesticos_GET",
+        "operationId": "AuthEletrodomesticos_GET",
         "deprecated": false,
         "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "parameters": [
           {
             "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/AtualizarEletrodomesticosRequest"
-            }
-          },
-          {
-            "name": "Content-Type",
             "in": "header",
             "required": true,
             "type": "string",
@@ -91,79 +185,153 @@
         ],
         "responses": {
           "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response1"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Get Eletro success",
+                "data": []
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 13:55:42 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "53"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"35-pZYq9af4BTuHSeMd/Yvo7x/NpNo\""
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "description": "Atualizar Eletrodomesticos",
+        "summary": "AuthEletrodomesticos_POST",
+        "operationId": "AuthEletrodomesticos_POST",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
             "description": "",
             "schema": {
-              "type": "object"
-            },
-            "headers": {}
+              "$ref": "#/definitions/Request"
+            }
           }
-        }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response2"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Eletrodomesticos Updated Success.",
+                "data": [
+                  {
+                    "title": "Plasma 42",
+                    "horas": "5",
+                    "quantidade": "1"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 13:55:45 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "118"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"76-xS5kCzz1kNuLRcZkML2Xq5IITh4\""
+              }
+            }
+          }
+        },
+        "security": []
       }
     },
     "/auth/leituras": {
       "get": {
-        "description": "",
-        "summary": "Get Leituras",
-        "tags": [
-          "user"
-        ],
-        "operationId": "GetLeituras",
+        "description": "Get Leituras",
+        "summary": "AuthLeituras_GET",
+        "operationId": "AuthLeituras_GET",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "parameters": [
           {
             "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "type": "object"
-            },
-            "headers": {}
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "summary": "Atualizar Leituras",
-        "tags": [
-          "user"
-        ],
-        "operationId": "AtualizarLeituras",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/AtualizarLeiturasRequest"
-            }
-          },
-          {
-            "name": "Content-Type",
             "in": "header",
             "required": true,
             "type": "string",
@@ -172,79 +340,159 @@
         ],
         "responses": {
           "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response2"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Get Leituras success",
+                "data": [
+                  {
+                    "title": "Plasma 42",
+                    "horas": "5",
+                    "quantidade": "1"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 14:08:56 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "105"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"69-XOJjSZChl4fF8QLIyk5zXuPzgQQ\""
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "description": "Atualizar Leituras",
+        "summary": "AuthLeituras_POST",
+        "operationId": "AuthLeituras_POST",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
             "description": "",
             "schema": {
-              "type": "object"
-            },
-            "headers": {}
+              "$ref": "#/definitions/Request1"
+            }
           }
-        }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response2"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Leituras Updated Success.",
+                "data": [
+                  {
+                    "title": "Plasma 42",
+                    "horas": "5",
+                    "quantidade": "1"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 14:08:52 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "110"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"6e-ed3kMcHTniaP7zlvsmfXdjSk56w\""
+              }
+            }
+          }
+        },
+        "security": []
       }
     },
     "/auth/historico": {
       "get": {
-        "description": "",
-        "summary": "Get Historico",
-        "tags": [
-          "user"
-        ],
-        "operationId": "GetHistorico",
+        "description": "Get Historico",
+        "summary": "AuthHistorico_GET",
+        "operationId": "AuthHistorico_GET",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "parameters": [
           {
             "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "type": "object"
-            },
-            "headers": {}
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "summary": "Atualizar Historico",
-        "tags": [
-          "user"
-        ],
-        "operationId": "AtualizarHistorico",
-        "deprecated": false,
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/AtualizarHistoricoRequest"
-            }
-          },
-          {
-            "name": "Content-Type",
             "in": "header",
             "required": true,
             "type": "string",
@@ -253,23 +501,152 @@
         ],
         "responses": {
           "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response2"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Get Historico success",
+                "data": [
+                  {
+                    "title": "Plasma 42",
+                    "horas": "5",
+                    "quantidade": "1"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 14:14:37 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "106"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"6a-RDaorskr9/3xqKQ49huimqoXvro\""
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "description": "Atualizar Historico",
+        "summary": "AuthHistorico_POST",
+        "operationId": "AuthHistorico_POST",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
             "description": "",
             "schema": {
-              "type": "object"
-            },
-            "headers": {}
+              "$ref": "#/definitions/Request2"
+            }
           }
-        }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response2"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Historico Updated Success.",
+                "data": [
+                  {
+                    "title": "Plasma 42",
+                    "horas": "5",
+                    "quantidade": "1"
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 14:14:34 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "111"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"6f-oTCmVXcnPu3V8pi0FR33EQxfPNA\""
+              }
+            }
+          }
+        },
+        "security": []
       }
     },
     "/auth/register": {
       "post": {
-        "description": "",
-        "summary": "Register",
-        "tags": [
-          "user"
-        ],
-        "operationId": "Register",
+        "description": "Register",
+        "summary": "AuthRegister_POST",
+        "operationId": "AuthRegister_POST",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -279,216 +656,333 @@
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/RegisterRequest"
-            }
-          },
-          {
             "name": "Content-Type",
             "in": "header",
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Request3"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "",
-            "schema": {
-              "type": "object"
-            },
             "headers": {}
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            },
+            "examples": {
+              "application/json": {
+                "status": 0,
+                "message": "Validation Error.",
+                "data": [
+                  {
+                    "value": "bruno@gmail.com",
+                    "msg": "E-mail already in use",
+                    "param": "email",
+                    "location": "body"
+                  }
+                ]
+              }
+            }
           }
-        }
+        },
+        "security": []
       }
     },
     "/auth/login": {
       "post": {
-        "description": "",
-        "summary": "Login",
-        "tags": [
-          "user"
-        ],
-        "operationId": "Login",
+        "description": "Login",
+        "summary": "AuthLogin_POST",
+        "operationId": "AuthLogin_POST",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "consumes": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/LoginRequest"
-            }
-          },
-          {
             "name": "Content-Type",
             "in": "header",
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Request4"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/Response7"
             },
-            "headers": {}
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Login Success.",
+                "data": {
+                  "_id": "5fb13256b89faa00120491ce",
+                  "firstName": "Bruno",
+                  "lastName": "Roza",
+                  "email": "bruno@gmail.com",
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmIxMzI1NmI4OWZhYTAwMTIwNDkxY2UiLCJmaXJzdE5hbWUiOiJCcnVubyIsImxhc3ROYW1lIjoiUm96YSIsImVtYWlsIjoiYnJ1bm9AZ21haWwuY29tIiwiaWF0IjoxNjA1NDQ4MzAzLCJleHAiOjE2MDU0NjI3MDN9.or6U5dVgyeSKYcHLaVoO-ywlRpwQ0aNSAAecVDrSHiU"
+                }
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 13:51:43 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "413"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"19d-6khrW3LcP8Z2WGG+D5HMTjwvvv8\""
+              }
+            }
           }
-        }
+        },
+        "security": []
       }
     },
     "/dicas/inserir": {
       "post": {
-        "description": "",
-        "summary": "Inserir Dica",
-        "tags": [
-          "dicas"
-        ],
-        "operationId": "InserirDica",
+        "description": "Inserir Dica",
+        "summary": "DicasInserir_POST",
+        "operationId": "DicasInserir_POST",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "consumes": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          },
-          {
-            "name": "Body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/InserirDicaRequest"
-            }
-          },
-          {
             "name": "Content-Type",
             "in": "header",
             "required": true,
             "type": "string",
             "description": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Request5"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/Response8"
             },
-            "headers": {}
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Dica add Success.",
+                "data": {
+                  "title": "nova dica",
+                  "description": "chuveiro",
+                  "image": "https://www.sonataengenharia.com.br/wp-content/uploads/2019/02/Disjuntor-de-chuveiro-desarmando.jpg"
+                }
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 11:45:04 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "206"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"ce-D7YzkUza7//NsiHc3skm4FJ/u74\""
+              }
+            }
           }
-        }
+        },
+        "security": []
       }
     },
     "/dicas/5fb114c09cab9a00126ea8fd": {
       "put": {
-        "description": "",
-        "summary": "atualizar Dica",
-        "tags": [
-          "dicas"
-        ],
-        "operationId": "atualizarDica",
+        "description": "atualizar Dica",
+        "summary": "Dicas5fb114c09cab9a00126ea8fd_PUT",
+        "operationId": "Dicas5fb114c09cab9a00126ea8fd_PUT",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "consumes": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "Content-Type",
             "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
+            "required": true,
+            "type": "string",
+            "description": ""
           },
           {
-            "name": "Body",
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
             "in": "body",
             "required": true,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/atualizarDicaRequest"
+              "$ref": "#/definitions/Request5"
             }
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/Response8"
             },
-            "headers": {}
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Dica update Success.",
+                "data": {
+                  "title": "nova didsaca",
+                  "description": "chuveiro",
+                  "image": "https://www.sonataengenharia.com.br/wp-content/uploads/2019/02/Disjuntor-de-chuveiro-desarmando.jpg"
+                }
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 11:47:54 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "212"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"d4-b/Qc2RusZp9uW6qs7S/f32bDbP0\""
+              }
+            }
           }
-        }
+        },
+        "security": []
       },
       "delete": {
-        "description": "",
-        "summary": "remover Dica",
-        "tags": [
-          "dicas"
-        ],
-        "operationId": "removerDica",
+        "description": "remover Dica",
+        "summary": "Dicas5fb114c09cab9a00126ea8fd_DELETE",
+        "operationId": "Dicas5fb114c09cab9a00126ea8fd_DELETE",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
         "consumes": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "Content-Type",
             "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
+            "required": true,
+            "type": "string",
+            "description": ""
           },
           {
-            "name": "Content-Type",
+            "name": "Authorization",
             "in": "header",
             "required": true,
             "type": "string",
@@ -497,51 +991,350 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/Response10"
             },
-            "headers": {}
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Book delete Success."
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 11:48:20 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "45"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"2d-FxgD8PVLtW98CWfY4sBKqdhkfW4\""
+              }
+            }
           }
-        }
+        },
+        "security": []
       }
     },
     "/dicas/": {
       "get": {
-        "description": "",
-        "summary": "Listar Dicas",
-        "tags": [
-          "dicas"
-        ],
-        "operationId": "ListarDicas",
+        "description": "Listar Dicas",
+        "summary": "Dicas_GET",
+        "operationId": "Dicas_GET",
         "deprecated": false,
         "produces": [
-          "application/json"
+          "application/json; charset=utf-8"
         ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "default": "Bearer {token}",
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "schema": {
-              "type": "object"
+              "$ref": "#/definitions/Response1"
             },
-            "headers": {}
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": 1,
+                "message": "Operation success",
+                "data": []
+              }
+            },
+            "headers": {
+              "Server": {
+                "type": "string",
+                "default": "nginx/1.16.1"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 15 Nov 2020 11:48:23 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "52"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"34-Hoi7QJReHhL7Lhv0pe0tqE9NUhU\""
+              }
+            }
           }
-        }
+        },
+        "security": []
       }
     }
   },
   "definitions": {
-    "AtualizarEletrodomesticosRequest": {
-      "title": "AtualizarEletrodomesticosRequest",
+    "Response": {
+      "title": "Response",
+      "example": {
+        "tabela": [
+          {
+            "aparelho": "Ar condicionado",
+            "potencia": 1200,
+            "unidade": "hora",
+            "consumo": 1.2,
+            "custo": 0.96
+          },
+          {
+            "aparelho": "Cafeteira",
+            "potencia": 500,
+            "unidade": "hora",
+            "consumo": 0.5,
+            "custo": 0.4
+          },
+          {
+            "aparelho": "Chuveiro",
+            "potencia": 4800,
+            "unidade": "minuto",
+            "consumo": 0.08,
+            "custo": 0.06
+          },
+          {
+            "aparelho": "Ferro elétrico",
+            "potencia": 1000,
+            "unidade": "hora",
+            "consumo": 1,
+            "custo": 0.8
+          },
+          {
+            "aparelho": "Forno de microondas",
+            "potencia": 1400,
+            "unidade": "hora",
+            "consumo": 1.4,
+            "custo": 1.12
+          },
+          {
+            "aparelho": "Forno elétrico",
+            "potencia": 600,
+            "unidade": "hora",
+            "consumo": 0.6,
+            "custo": 0.48
+          },
+          {
+            "aparelho": "Lâmpada de LED",
+            "potencia": 8,
+            "unidade": "hora",
+            "consumo": 0.01,
+            "custo": 0.006
+          },
+          {
+            "aparelho": "Lâmpada fluorescente",
+            "potencia": 15,
+            "unidade": "hora",
+            "consumo": 0.02,
+            "custo": 0.012
+          },
+          {
+            "aparelho": "Lâmpada incandescente",
+            "potencia": 60,
+            "unidade": "hora",
+            "consumo": 0.06,
+            "custo": 0.05
+          },
+          {
+            "aparelho": "Notebook",
+            "potencia": 90,
+            "unidade": "hora",
+            "consumo": 0.09,
+            "custo": 0.07
+          },
+          {
+            "aparelho": "Sanduicheira",
+            "potencia": 1000,
+            "unidade": "hora",
+            "consumo": 1,
+            "custo": 0.8
+          },
+          {
+            "aparelho": "Secador de cabelos",
+            "potencia": 1200,
+            "unidade": "hora",
+            "consumo": 1.2,
+            "custo": 0.96
+          },
+          {
+            "aparelho": "TV",
+            "potencia": 120,
+            "unidade": "hora",
+            "consumo": 0.12,
+            "custo": 0.1
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "tabela": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tabela"
+          }
+        }
+      },
+      "required": [
+        "tabela"
+      ]
+    },
+    "Tabela": {
+      "title": "Tabela",
+      "example": {
+        "aparelho": "Ar condicionado",
+        "potencia": 1200,
+        "unidade": "hora",
+        "consumo": 1.2,
+        "custo": 0.96
+      },
+      "type": "object",
+      "properties": {
+        "aparelho": {
+          "type": "string"
+        },
+        "potencia": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unidade": {
+          "type": "string"
+        },
+        "consumo": {
+          "type": "number",
+          "format": "double"
+        },
+        "custo": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "aparelho",
+        "potencia",
+        "unidade",
+        "consumo",
+        "custo"
+      ]
+    },
+    "Response1": {
+      "title": "Response1",
+      "example": {
+        "status": 1,
+        "message": "Get Eletro success",
+        "data": []
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Response2": {
+      "title": "Response2",
+      "example": {
+        "status": 1,
+        "message": "Get Leituras success",
+        "data": [
+          {
+            "title": "Plasma 42",
+            "horas": "5",
+            "quantidade": "1"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Datum": {
+      "title": "Datum",
+      "example": {
+        "title": "Plasma 42",
+        "horas": "5",
+        "quantidade": "1"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "horas": {
+          "type": "string"
+        },
+        "quantidade": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "horas",
+        "quantidade"
+      ]
+    },
+    "Request": {
+      "title": "Request",
       "example": {
         "eletrodomesticos": [
           {
@@ -556,7 +1349,7 @@
         "eletrodomesticos": {
           "type": "array",
           "items": {
-            "type": "object"
+            "$ref": "#/definitions/Eletrodomestico"
           }
         }
       },
@@ -564,8 +1357,33 @@
         "eletrodomesticos"
       ]
     },
-    "AtualizarLeiturasRequest": {
-      "title": "AtualizarLeiturasRequest",
+    "Eletrodomestico": {
+      "title": "Eletrodomestico",
+      "example": {
+        "title": "Plasma 42",
+        "horas": "5",
+        "quantidade": "1"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "horas": {
+          "type": "string"
+        },
+        "quantidade": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "horas",
+        "quantidade"
+      ]
+    },
+    "Request1": {
+      "title": "Request1",
       "example": {
         "leituras": [
           {
@@ -580,7 +1398,7 @@
         "leituras": {
           "type": "array",
           "items": {
-            "type": "object"
+            "$ref": "#/definitions/Leitura"
           }
         }
       },
@@ -588,8 +1406,33 @@
         "leituras"
       ]
     },
-    "AtualizarHistoricoRequest": {
-      "title": "AtualizarHistoricoRequest",
+    "Leitura": {
+      "title": "Leitura",
+      "example": {
+        "title": "Plasma 42",
+        "horas": "5",
+        "quantidade": "1"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "horas": {
+          "type": "string"
+        },
+        "quantidade": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "horas",
+        "quantidade"
+      ]
+    },
+    "Request2": {
+      "title": "Request2",
       "example": {
         "historico": [
           {
@@ -604,7 +1447,7 @@
         "historico": {
           "type": "array",
           "items": {
-            "type": "object"
+            "$ref": "#/definitions/Historico"
           }
         }
       },
@@ -612,8 +1455,33 @@
         "historico"
       ]
     },
-    "RegisterRequest": {
-      "title": "RegisterRequest",
+    "Historico": {
+      "title": "Historico",
+      "example": {
+        "title": "Plasma 42",
+        "horas": "5",
+        "quantidade": "1"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "horas": {
+          "type": "string"
+        },
+        "quantidade": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "horas",
+        "quantidade"
+      ]
+    },
+    "Request3": {
+      "title": "Request3",
       "example": {
         "firstName": "Bruno",
         "lastName": "Roza",
@@ -642,8 +1510,74 @@
         "password"
       ]
     },
-    "LoginRequest": {
-      "title": "LoginRequest",
+    "ErrorResponse": {
+      "title": "ErrorResponse",
+      "example": {
+        "status": 0,
+        "message": "Validation Error.",
+        "data": [
+          {
+            "value": "bruno@gmail.com",
+            "msg": "E-mail already in use",
+            "param": "email",
+            "location": "body"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum5"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Datum5": {
+      "title": "Datum5",
+      "example": {
+        "value": "bruno@gmail.com",
+        "msg": "E-mail already in use",
+        "param": "email",
+        "location": "body"
+      },
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "param": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "msg",
+        "param",
+        "location"
+      ]
+    },
+    "Request4": {
+      "title": "Request4",
       "example": {
         "email": "bruno@gmail.com",
         "password": "123456"
@@ -662,8 +1596,75 @@
         "password"
       ]
     },
-    "InserirDicaRequest": {
-      "title": "InserirDicaRequest",
+    "Response7": {
+      "title": "Response7",
+      "example": {
+        "status": 1,
+        "message": "Login Success.",
+        "data": {
+          "_id": "5fb13256b89faa00120491ce",
+          "firstName": "Bruno",
+          "lastName": "Roza",
+          "email": "bruno@gmail.com",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmIxMzI1NmI4OWZhYTAwMTIwNDkxY2UiLCJmaXJzdE5hbWUiOiJCcnVubyIsImxhc3ROYW1lIjoiUm96YSIsImVtYWlsIjoiYnJ1bm9AZ21haWwuY29tIiwiaWF0IjoxNjA1NDQ4MzAzLCJleHAiOjE2MDU0NjI3MDN9.or6U5dVgyeSKYcHLaVoO-ywlRpwQ0aNSAAecVDrSHiU"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Data": {
+      "title": "Data",
+      "example": {
+        "_id": "5fb13256b89faa00120491ce",
+        "firstName": "Bruno",
+        "lastName": "Roza",
+        "email": "bruno@gmail.com",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmIxMzI1NmI4OWZhYTAwMTIwNDkxY2UiLCJmaXJzdE5hbWUiOiJCcnVubyIsImxhc3ROYW1lIjoiUm96YSIsImVtYWlsIjoiYnJ1bm9AZ21haWwuY29tIiwiaWF0IjoxNjA1NDQ4MzAzLCJleHAiOjE2MDU0NjI3MDN9.or6U5dVgyeSKYcHLaVoO-ywlRpwQ0aNSAAecVDrSHiU"
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "firstName",
+        "lastName",
+        "email",
+        "token"
+      ]
+    },
+    "Request5": {
+      "title": "Request5",
       "example": {
         "title": "nova dica",
         "description": "chuveiro",
@@ -687,10 +1688,40 @@
         "image"
       ]
     },
-    "atualizarDicaRequest": {
-      "title": "atualizarDicaRequest",
+    "Response8": {
+      "title": "Response8",
       "example": {
-        "title": "nova didsaca",
+        "status": 1,
+        "message": "Dica add Success.",
+        "data": {
+          "title": "nova dica",
+          "description": "chuveiro",
+          "image": "https://www.sonataengenharia.com.br/wp-content/uploads/2019/02/Disjuntor-de-chuveiro-desarmando.jpg"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data1"
+        }
+      },
+      "required": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    "Data1": {
+      "title": "Data1",
+      "example": {
+        "title": "nova dica",
         "description": "chuveiro",
         "image": "https://www.sonataengenharia.com.br/wp-content/uploads/2019/02/Disjuntor-de-chuveiro-desarmando.jpg"
       },
@@ -711,16 +1742,28 @@
         "description",
         "image"
       ]
+    },
+    "Response10": {
+      "title": "Response10",
+      "example": {
+        "status": 1,
+        "message": "Book delete Success."
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "message"
+      ]
     }
   },
-  "tags": [
-    {
-      "name": "user",
-      "description": ""
-    },
-    {
-      "name": "dicas",
-      "description": ""
-    }
-  ]
+  "tags": []
 }
