@@ -371,7 +371,7 @@ exports.profile = [
           };
           return apiResponse.successResponseWithData(
             res,
-            "Get  Profile success",
+            "Get Profile success",
             foundEletro.eletrodomesticos
           );
         } catch (err) {

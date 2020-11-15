@@ -1,16 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
-    "title": "MegaHack4 API",
-    "description": "Economize Energia!",
-    "license": {
-      "name": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
-    }
+    "version": "1.0",
+    "title": "MegaHack4",
+    "description": "",
+    "contact": {}
   },
   "host": "megahack5.brunoeleodoro.com",
-  "basePath": "/api/",
+  "basePath": "/api",
+  "securityDefinitions": {},
   "schemes": [
     "https"
   ],
@@ -21,150 +19,708 @@
     "application/json"
   ],
   "paths": {
-    "/dicas": {
-      "post": {
-        "description": "Create new dica n system",
-        "parameters": [
-          {
-            "title": "Titulo da dica",
-            "in": "body",
-            "description": "Criar uma dica",
-            "schema": {
-              "$ref": "#/definitions/Dica"
-            }
-          }
+    "/auth/eletrodomesticos": {
+      "get": {
+        "description": "",
+        "summary": "Get Eletrodomesticos",
+        "tags": [
+          "user"
         ],
+        "operationId": "GetEletrodomesticos",
+        "deprecated": false,
         "produces": [
           "application/json"
-        ]
-      },
-      "get": {
-        "summary": "Get all dicas in system",
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "",
             "schema": {
-              "$ref": "#/definitions/Dicas"
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "summary": "Atualizar Eletrodomesticos",
+        "tags": [
+          "user"
+        ],
+        "operationId": "AtualizarEletrodomesticos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AtualizarEletrodomesticosRequest"
             }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
           }
         }
       }
     },
-    "/users/{userId}": {
-      "parameters": [
-        {
-          "name": "userId",
-          "in": "path",
-          "required": true,
-          "description": "ID of user that we want to find",
-          "type": "string"
-        }
-      ],
+    "/auth/leituras": {
       "get": {
+        "description": "",
+        "summary": "Get Leituras",
         "tags": [
-          "Users"
+          "user"
         ],
-        "summary": "Get user with given ID",
+        "operationId": "GetLeituras",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "User is found",
+            "description": "",
             "schema": {
-              "$ref": "#/definitions/User"
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "summary": "Atualizar Leituras",
+        "tags": [
+          "user"
+        ],
+        "operationId": "AtualizarLeituras",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AtualizarLeiturasRequest"
             }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/auth/historico": {
+      "get": {
+        "description": "",
+        "summary": "Get Historico",
+        "tags": [
+          "user"
+        ],
+        "operationId": "GetHistorico",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "summary": "Atualizar Historico",
+        "tags": [
+          "user"
+        ],
+        "operationId": "AtualizarHistorico",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AtualizarHistoricoRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "description": "",
+        "summary": "Register",
+        "tags": [
+          "user"
+        ],
+        "operationId": "Register",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "description": "",
+        "summary": "Login",
+        "tags": [
+          "user"
+        ],
+        "operationId": "Login",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/dicas/inserir": {
+      "post": {
+        "description": "",
+        "summary": "Inserir Dica",
+        "tags": [
+          "dicas"
+        ],
+        "operationId": "InserirDica",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InserirDicaRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/dicas/5fb114c09cab9a00126ea8fd": {
+      "put": {
+        "description": "",
+        "summary": "atualizar Dica",
+        "tags": [
+          "dicas"
+        ],
+        "operationId": "atualizarDica",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/atualizarDicaRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
           }
         }
       },
       "delete": {
-        "summary": "Delete user with given ID",
+        "description": "",
+        "summary": "remover Dica",
         "tags": [
-          "Users"
+          "dicas"
         ],
-        "responses": {
-          "200": {
-            "description": "User is deleted",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Update user with give ID",
-        "tags": [
-          "Users"
+        "operationId": "removerDica",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
         ],
         "parameters": [
           {
-            "name": "user",
-            "in": "body",
-            "description": "User with new values of properties",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
           }
         ],
         "responses": {
           "200": {
-            "description": "User is updated",
+            "description": "",
             "schema": {
-              "$ref": "#/definitions/User"
-            }
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/dicas/": {
+      "get": {
+        "description": "",
+        "summary": "Listar Dicas",
+        "tags": [
+          "dicas"
+        ],
+        "operationId": "ListarDicas",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
           }
         }
       }
     }
   },
   "definitions": {
-    "User": {
-      "required": [
-        "email",
-        "_id"
-      ],
+    "AtualizarEletrodomesticosRequest": {
+      "title": "AtualizarEletrodomesticosRequest",
+      "example": {
+        "eletrodomesticos": [
+          {
+            "title": "Plasma 42",
+            "horas": "5",
+            "quantidade": "1"
+          }
+        ]
+      },
+      "type": "object",
       "properties": {
-        "_id": {
-          "type": "string",
-          "uniqueItems": true
-        },
-        "email": {
-          "type": "string",
-          "uniqueItems": true
+        "eletrodomesticos": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "eletrodomesticos"
+      ]
+    },
+    "AtualizarLeiturasRequest": {
+      "title": "AtualizarLeiturasRequest",
+      "example": {
+        "leituras": [
+          {
+            "title": "Plasma 42",
+            "horas": "5",
+            "quantidade": "1"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "leituras": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "leituras"
+      ]
+    },
+    "AtualizarHistoricoRequest": {
+      "title": "AtualizarHistoricoRequest",
+      "example": {
+        "historico": [
+          {
+            "title": "Plasma 42",
+            "horas": "5",
+            "quantidade": "1"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "historico": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "historico"
+      ]
+    },
+    "RegisterRequest": {
+      "title": "RegisterRequest",
+      "example": {
+        "firstName": "Bruno",
+        "lastName": "Roza",
+        "email": "bruno@gmail.com",
+        "password": "123456"
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
         },
         "lastName": {
           "type": "string"
         },
-        "firstName": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
           "type": "string"
         }
-      }
-    },
-    "Users": {
-      "type": "array",
-      "$ref": "#/definitions/User"
-    },
-    "Dica": {
+      },
       "required": [
-        "title",
-        "description"
-      ],
+        "firstName",
+        "lastName",
+        "email",
+        "password"
+      ]
+    },
+    "LoginRequest": {
+      "title": "LoginRequest",
+      "example": {
+        "email": "bruno@gmail.com",
+        "password": "123456"
+      },
+      "type": "object",
       "properties": {
-        "_id": {
-          "type":"string",
-          "uniqueItems": true
+        "email": {
+          "type": "string"
         },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "InserirDicaRequest": {
+      "title": "InserirDicaRequest",
+      "example": {
+        "title": "nova dica",
+        "description": "chuveiro",
+        "image": "https://www.sonataengenharia.com.br/wp-content/uploads/2019/02/Disjuntor-de-chuveiro-desarmando.jpg"
+      },
+      "type": "object",
+      "properties": {
         "title": {
-          "type":"string"
+          "type": "string"
         },
         "description": {
-          "type":"string"
+          "type": "string"
         },
         "image": {
-          "type":"string"
+          "type": "string"
         }
-      }
+      },
+      "required": [
+        "title",
+        "description",
+        "image"
+      ]
     },
-    "Dicas": {
-      "type": "array",
-      "$ref": "#/definitions/Dica"
+    "atualizarDicaRequest": {
+      "title": "atualizarDicaRequest",
+      "example": {
+        "title": "nova didsaca",
+        "description": "chuveiro",
+        "image": "https://www.sonataengenharia.com.br/wp-content/uploads/2019/02/Disjuntor-de-chuveiro-desarmando.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "image"
+      ]
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "user",
+      "description": ""
+    },
+    {
+      "name": "dicas",
+      "description": ""
+    }
+  ]
 }
