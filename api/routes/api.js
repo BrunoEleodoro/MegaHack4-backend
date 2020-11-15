@@ -2,7 +2,7 @@ var express = require("express");
 var authRouter = require("./auth");
 var bookRouter = require("./book");
 var dicasRouter = require("./dicas");
-const { tabelaPrecosList } = require("../globals/Globals");
+const {tabelaPrecosList} = require("../globals/Globals");
 
 var app = express();
 

@@ -1,4 +1,4 @@
-export const tabelaPrecosList = [
+exports.tabelaPrecosList = [
   {
     aparelho: "Ar condicionado",
     potencia: 1200,
