@@ -13,7 +13,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "LogRocket Express API with Swagger",
+      title: "MegaHack4 Express API with Swagger",
       version: "0.1.0",
       description:
         "MegaHack4 documented with Swagger",
