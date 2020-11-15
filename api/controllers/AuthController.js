@@ -372,7 +372,7 @@ exports.profile = [
           return apiResponse.successResponseWithData(
             res,
             "Get Profile success",
-            foundEletro.eletrodomesticos
+            objData 
           );
         } catch (err) {
           return apiResponse.ErrorResponse(res, err);
