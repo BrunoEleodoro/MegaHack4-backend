@@ -123,7 +123,7 @@ exports.atualizarDica = [
                   return apiResponse.successResponseWithData(
                     res,
                     "Dica update Success.",
-                    bookData
+                    objData
                   );
                 }
               });
