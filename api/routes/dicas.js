@@ -4,7 +4,7 @@ const DicasController = require("../controllers/DicasController");
 var router = express.Router();
 
 router.get("/", DicasController.dicasList);
-router.post("/", DicasController.inserirDica);
+router.post("/inserir", DicasController.inserirDica);
 router.put("/:id", DicasController.atualizarDica);
 router.delete("/:id", DicasController.deletarDica);
 
