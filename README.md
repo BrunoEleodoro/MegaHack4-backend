@@ -1,4 +1,4 @@
-<h2 align="center">Raízes do Saber</h2>
+<h2 align="center">CPFL + Economia</h2>
 
 <p align="center">
   <img src="docs/logo.png" width="300" heigth="300">
@@ -19,7 +19,7 @@
 
 ## :information_source: Sobre
 
-Através do aplicativo o usuário poderá fazer uma auto leitura do seu medidor de consumo elétrico. Além de inserir uma meta e os eletrodomésticos e aparelhos elétricos possui em sua residência, nosso app fará uma análise de consumo, entregando ao usuário uma estimativa do valor da próxima fatura.Nosso app também irá disponibilizar tutoriais e dicas promovendo o consumo racional de energia.
+Através do aplicativo o usuário poderá fazer uma auto leitura do seu medidor de consumo elétrico. Além de inserir uma meta e os eletrodomésticos e aparelhos elétricos possui em sua residência, nosso app fará uma análise de consumo, entregando ao usuário uma estimativa do valor da próxima fatura.Nosso app também irá disponibilizar tutoriais e dicas promovendo o consumo racional de energia.
 
 
 ## :rocket: Tecnologias Utilizadas
